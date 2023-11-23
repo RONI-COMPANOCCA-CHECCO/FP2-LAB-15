@@ -654,31 +654,39 @@ Ingrese el Capital Variable:
     
     \section{EJERCICIO PROPUESTO}
 	\begin{itemize}
-        \subsection{INTRODUCCION}
-        \subsubsection {Este laboratorio requiere que usted escriba un programa utilizando clases definidas por el programador. No deberá utilizar sintaxis o constructores que no han sido cubiertos durante las clases teóricas. Será penalizado por esta falta. A menos que una plantilla sea dada, deberá utilizar cada programa desde cero de manera que obtenga suficiente práctica en la escritura de programas en Java.}
-        \subsubsection {Un consejo: Programe incrementalmente. No trate de terminar todas las partes del programa y luego compilarlo. Escriba sus programas en partes y compílelo de forma frecuente. Trate de mantener un programa compilable aun cuando esté trabajando en él. Presentar un programa compilable que funcione parcialmente es mejor que presentar un programa no-compilable.  EN SERIO, programe incrementalmente.}
-        \subsubsection {Los objetivos de este laboratorio son:}
-        \subsubsection {Deberá asumir que todos los datos de ingreso son correctos.}
-        \subsubsection {Deberá utilizar la clase Scanner en System.in para ingresos de datos y System.out para salida de datos en sus programas, a menos que se indique lo contrario.}
-        \subsubsection {Pruebe sus programas con sus propios datos de prueba antes de presentarlos.} 
-        \subsubsection {Evitar duplicación de código.}
-        \subsubsection {Usar como base el diagrama de clases UML siguiente (puede aumentar atributos y métodos necesarios):}
-        \subsubsection {Puede reutilizar todo el código del laboratorio 11, pero ahora el objetivo es gestionar los ejércitos autogenerados.}
-        \subsubsection {Al ejecutar el videojuego, el programa deberá dar las opciones:}
-        \paragraph {1. Juego rápido (tal cual como en el laboratorio 11) Al acabar el juego mostrar las opciones de volver a jugar y de volver al menú principal. También se deberá tener la posibilidad de cancelar el juego actual en cualquier momento, permitiendo escoger entre empezar un juego totalmente nuevo o salir al menú principal.}
-        \paragraph {2. Juego personalizado: permite gestionar ejércitos. Primero se generan los 2 ejércitos con sus respectivos soldados y se muestran sus datos. Luego se tendrá que escoger cuál de los 2 ejércitos se va a gestionar, después se mostrarán las siguientes opciones:} 
-            \subparagraph {2.1 Crear Soldado: permitirá crear un nuevo soldado personalizado y añadir al final del ejército (recordar que límite es de 10 soldados por ejército)}
-        \subparagraph {2.2 Eliminar Soldado (no debe permitir un ejército vacío)} 
-        \subparagraph {2.3 Clonar Soldado (crea una copia exacta del soldado) y se añade al final del ejército (recordar que límite es de 10 soldados por ejército)} 
-        \subparagraph {2.4 Modificar Soldado (con submenú para cambiar alguno de los atributos nivelAtaque, nivelDefensa, vidaActual)} 
-        \subparagraph {2.5 Comparar Soldados (verifica si atributos: nombre, nivelAtaque, nivelDefensa, vidaActual y vive son iguales)}
-        \subparagraph {2.6 Intercambiar Soldados (intercambia 2 soldados en sus posiciones en la estructura de datos del ejército)} 
-        \subparagraph {2.7 Ver soldado (Búsqueda por nombre)} 
-        \subparagraph {2.8 Ver ejército} 
-        \subparagraph {2.9 Sumar niveles (usando Method-Call Chaining), calcular las sumatorias de nivelVida, nivelAtaque, nivelDefensa, velocidad de todos los soldados de un ejército}
-        \subparagraph {2.10 Jugar (se empezará el juego con los cambios realizados) y con las mismas opciones de la opción 1.}
-        \subparagraph {2.11 Volver (muestra el menú principal) Después de escoger alguna de las opciones 1) a 9) se podrá volver a elegir uno de los ejércitos y se mostrarán las opciones 1) a 11)} 
-        \paragraph 3. Salir
+        \textcolor{red}{PROBLEMA 01}
+        \\
+        \\
+        \item {Basándose en la clase Soldado de las prácticas anteriores, crear una nueva clase Ejército (clase contenedora) que tendrá como parte a un conjunto de Soldados (cada soldado es exclusivo de un ejército). Cada ejército debe pertenecer a algún reino específico (Inglaterra, Francia, Castilla-Aragón, Sacro Imperio Romano-Germánico, Moros, etc.).}
+        \\
+        \\
+        \item Considere constructores sobrecargados sets y gets
+        \\
+        \\
+        \item toString (devuelve datos generales del ejército y de todos sus soldados)
+        \\
+        \\
+        \item Que Ejército tenga un atributo misSoldados (puede ser un arreglo estándar, ArrayList o HashMap de Soldado, ud. debe elegir la mejor opción). Considerar un máximo 10 soldados por ejército
+        \\
+        \\
+        \item Ejército debe tener métodos para ingresar los datos de todos sus soldados (2 opciones: manualmente y autogenerado), modificarlos y eliminarlos (crear algún menú pensando en el usuario). Considerar 1..10 soldados por cada ejército.
+        \\
+        \\
+        \item También se debe poder consultar el Soldado con mayor nivel de ataque, ver ranking de poder considerando el nivel de vida (descendente) y ver todos los datos del ejército y de los soldados que lo conforman
+        \\
+        \\
+        \item Un main que permita crear un Ejército y gestionarlo por medio del menú
+        \\
+        \\
+        \item Crear los atributos y métodos extras que considere necesarios
+        \\
+        \\
+        \item Basarse en el siguiente diagrama de clases de UML y crear un diagrama completo que considere inclusive la clase principal
+        \\
+        \\
+        \includegraphics[height=10cm]{imagen.jpeg}
+        \\
+      
         \item la clase Main.java
         
         \begin{lstlisting}[language=java]
@@ -1175,8 +1183,50 @@ GANADOR ***EJERCITO 2***
 
     
 	\end{itemize}
+	\begin{itemize}
+        \textcolor{red}{PROBLEMA 02}
+        \\
+        \\
+        \item Basándose en los laboratorios anteriores
+        \\
+        \\
+        \item Crear la clase Mapa, que esté constituida por el tablero antes visto, pero que en lugar de soldados, posicione ejércitos en ciertas posiciones aleatorias (entre 1 y 10 ejércitos por cada reino). Se deben generar ejércitos de 2 reinos, entre 1 y 10 soldados por ejército. No se admite guerra civil. El Mapa tiene como atributo el tipo de territorio que puede ser (bosque, campo abierto, montaña, desierto, playa). La cantidad de ejércitos y cantidad de soldados por ejército, así como todos sus atributos se deben generar aleatoriamente
+        \\
+        \\
+        \item Dibujar el Mapa con las restricciones que sólo 1 ejercito como máximo en cada cuadrado
+        \\
+        \\
+        \item El mapa tiene un solo tipo de territorio autogenerado
+        \\
+        \\
+        \item Considerar que el territorio influye en los resultados de las batallas, así cada reino tiene bonus según el territorio: Inglaterra->bosque, Francia->campo abierto, Castilla-Aragón->montaña, Moros->desierto, Sacro Imperio RomanoGermánico->bosque, playa y campo abierto. En dichos casos, se aumenta el nivel de vida en 1 a todos los soldados del reino beneficiado
+        \\
+        \\
+        \item Realizar el diagrama de clases de UML completo
+        \\
+        \\
+        \item Indicar quién ganaría la guerra y justificar por qué. Describir 3 métricas usadas
+        \\
+        \\
+        \item Hacerlo iterativo
+        \\
+        \\
+        \includegraphics[height=10cm]{imagen1.jpeg}
 
- 
+	\end{itemize}
+
+    \section{REFERENCIAS}
+	\begin{itemize}
+		\item ¿Qué son la propiedades y métodos de instancia, qué diferencia tienen con las propiedades y métodos de clase?
+        \\
+        \text En la programación orientada a objetos, tanto en lenguajes como Python, Java, C++, entre otros, se utilizan conceptos como propiedades y métodos de instancia, así como propiedades y métodos de clase. Estos conceptos son fundamentales para entender la estructura y el comportamiento de las clases.
+		\item ¿Qué ventajas tiene la relación de herencia?
+        \\
+        \text La herencia es uno de los conceptos fundamentales de la programación orientada a objetos (POO) y proporciona varias ventajas en el diseño y desarrollo de software. 
+		\item ¿Qué es la sobreescritura y la sobrecarga de métodos?
+        \\
+        \text La sobreescritura de métodos ocurre cuando una clase hija proporciona una implementación específica para un método que ya está definido en su clase base (o en una de sus clases ancestrales). La firma del método (nombre y parámetros) en la clase hija es la misma que la firma en la clase base. La sobreescritura permite a las clases hijas proporcionar su propia implementación del método, reemplazando así la implementación de la clase base.
+	\end{itemize}
 	\section{REFERENCIAS}
 	\begin{itemize}
 		\item M. Aedo, “Fundamentos de Programación 2 - Tópicos de Programación Orientada a Objetos”, Primera Edición, 2021, Editorial UNSA.
